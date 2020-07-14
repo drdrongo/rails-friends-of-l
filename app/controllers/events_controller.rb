@@ -10,4 +10,7 @@ class EventsController < ApplicationController
   def show
   end
 
+  def create
+    authorize @event
+  end
 end
