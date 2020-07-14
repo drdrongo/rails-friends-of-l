@@ -1,0 +1,120 @@
+.card-event {
+  display: flex;
+  flex-basis: 33%;
+  width: 380px;
+  height: 460px;
+  background-color: #BCBDA8;
+  padding: 20px;
+}
+
+.card-event-picture {
+  background-image: url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  background-size: cover;
+}
+
+.card-event-info {
+
+}
+
+
+// .card-event img {
+//   object-fit: cover;
+//   height: 100px;
+//   width: 100px;
+//   filter: brightness(1);
+// }
+
+// .card-event-info {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   line-height: 10px;
+//   font-size: 12px;
+//   padding: 15px;
+//   position: relative;
+// }
+// .card-event-info h3, p {
+//   margin: .4em;
+// }
+// .card-event-info p {
+//   color: #313639;
+// }
+// .card-event-info img {
+//   border-radius: 50%;
+//   object-fit: cover;
+//   width: 40px;
+//   height: 40px;
+//   object-position: 0 0;
+//   position: absolute;
+//   top: -20px;
+//   border: 1px solid white;
+//   box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+// }
+
+// @media screen and (max-width: 50em) {
+//   .card-event {
+//     flex-basis: 49%;
+//   }
+// }
+
+// @media screen and (max-width: 35em) {
+//   .card-event {
+//     flex-basis: 100%;
+//   }
+// }
+
+
+
+// .drink-card {
+//   display: flex;
+//   align-items: center;
+//   height: 150px;
+//   width: 100%;
+//   flex-basis: 33%;
+//   margin-bottom: 5px;
+//   border-radius: 5px;
+//   background: rgb(152,152,152);
+//   background: linear-gradient(180deg, rgba(152,152,152,0.8673844537815126) 0%, rgba(70,70,70,1) 100%);
+//   transition: background-color 0.2s, color 0.2s;
+//   &:hover {
+//     text-decoration: none;
+//     background-color: grey;
+//     transform: translateY(-1px);
+//     transition: background-color 0.2s;
+//     h2 {
+//       color: orange;
+//       transition: color 0.2s;
+//     }
+//   }
+//   &:active {
+//     transform: transateY(1px);
+//   }
+// }
+
+// .drink-cards-container::after {
+//   content: '';
+//   flex: auto;
+// }
+
+// .drink-card-body {
+//   word-wrap: break;
+//   width: 100%;
+//   padding: 10px;
+//   text-align: center;
+// }
+
+// .drink-card-body h2 {
+//   word-break: break-word;
+//   text-decoration: none;
+//   color: white;
+// }
+
+// .drink-card img {
+//   height: 100%;
+//   object-fit: cover;
+//   width: 35%;
+//   border-top-right-radius: 5px;
+//   border-bottom-right-radius: 5px;
+// }
+
+
