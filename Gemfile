@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # devise gem for user logins/sign ups
 gem 'devise'
+gem 'faker'
 
 # pundit gem for authorization
 gem "pundit"
