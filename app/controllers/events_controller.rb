@@ -8,9 +8,14 @@ class EventsController < ApplicationController
   end
 
   def show
+    authorize @event
   end
 
   def create
+    authorize @event
+  end
+
+  def destroy
     authorize @event
   end
 end
