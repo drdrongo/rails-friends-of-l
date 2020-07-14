@@ -1,6 +1,7 @@
+
+
 .card-event {
-  display: flex;
-  flex-basis: 33%;
+  flex-basis: 30%;
   width: 380px;
   height: 460px;
   background-color: #BCBDA8;
@@ -10,6 +11,12 @@
 .card-event-picture {
   background-image: url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
   background-size: cover;
+  height: 300px;
+  width: 360px;
+  margin: 0 auto;
+  background-position: center;
+  text-align: center;
+  color: white;
 }
 
 .card-event-info {
