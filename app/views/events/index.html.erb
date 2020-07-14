@@ -4,8 +4,8 @@
     <% @events.each do |event| %>
       <div class="card-event">
         <div class="card-event-picture">
-          <h3 class="">Drinking with Friends</h3>
-          <p>Jill's Bar, 3-1-27 Dogenzaka, Shibuya</p>
+          <h3 class=""><%= event.title %></h3>
+          <p><%= event.venue %></p>
         </div>
         <div class="card-event-info">
           <div class="card-event-info-left">
@@ -19,7 +19,7 @@
           </div>
           <div class="card-event-info-right">
             <img class="avatar rounded-circle" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="FACE">
-            <h3>2/6 capacity</h3>
+            <h3><%= event.capacity %> capacity</h3>
           </div>
         </div>
       </div>
