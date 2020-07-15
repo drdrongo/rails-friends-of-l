@@ -1,0 +1,8 @@
+<p> <%= @event.datetime %></p>
+<h1> <%= @event.title %> </h1>
+<h4> Category: <%= @event.category %></h4>
+<p> Hosted by <%= @event.user.email %></p>
+<p> Description: <%= @event.description %></p>
+<p> Where: <%= @event.venue %></p>
+<p> Capacity: <%= @event.capacity %></p>
+<button type="button" class="btn btn-outline-secondary">Request to join</button>
