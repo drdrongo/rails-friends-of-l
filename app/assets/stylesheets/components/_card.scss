@@ -1,28 +1,70 @@
-
-
 .card-event {
   flex-basis: 30%;
   width: 380px;
   height: 460px;
   background-color: #BCBDA8;
   padding: 20px;
+  min-width: 340px;
 }
 
 .card-event-picture {
-  background-image: url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  background: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  min-width: 300px;
   background-size: cover;
   height: 300px;
-  width: 360px;
   margin: 0 auto;
   background-position: center;
   text-align: center;
   color: white;
+  position: relative;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .5);
+}
+
+.event-title {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 300px;
+  font-size: 64px;
+}
+
+.event-venue {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  bottom: 32px;
+
+
 }
 
 .card-event-info {
-
+  background: white;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .5);
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  height: 120px;
 }
 
+.card-event-info-right {
+  position: relative;
+  text-align: center;
+}
+
+.card-event-avatar {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: -50px;
+  right: 16px
+}
 
 // .card-event img {
 //   object-fit: cover;
