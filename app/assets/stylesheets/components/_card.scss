@@ -3,8 +3,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
 }
 
-.card-event {
+.container-cards-events a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
   flex: 0 2 100%;
+}
+
+.card-event {
   max-width: 100%;
   height: 470px;
   background-color: #989884;
@@ -25,18 +31,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media screen and (min-width: 45em) {
-  .card-event {
-  flex: 0 2 calc(50% - 1em);
+  .container-cards-events a {
+    flex: 0 2 calc(50% - 1em);
   }
+  
 }
 @media screen and (min-width: 72em) {
-  .card-event {
-  flex: 0 2 calc(33% - 1em);
+  .container-cards-events a {
+    flex: 0 2 calc(33% - 1em);
   }
 }
 @media screen and (min-width: 100em) {
-  .card-event {
-  flex: 0 2 calc(25% - 1em);
+  .container-cards-events a {
+    flex: 0 2 calc(25% - 1em);
   }
 }
 
@@ -56,13 +63,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-title {
+  word-wrap: break-word;
   text-align: center;
   width: 100%;
   margin: 0 auto;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 64px;
+  font-size: 48px;
 }
 
 .event-venue {
@@ -106,64 +114,3 @@ h1, h2, h3, h4, h5, h6 {
 .card-event-date-stacked {
   text-align: center;
 }
-
-// .card-event-info {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   line-height: 10px;
-//   font-size: 12px;
-//   padding: 15px;
-//   position: relative;
-// }
-// .card-event-info h3, p {
-//   margin: .4em;
-// }
-// .card-event-info p {
-//   color: #313639;
-// }
-// .card-event-info img {
-//   border-radius: 50%;
-//   object-fit: cover;
-//   width: 40px;
-//   height: 40px;
-//   object-position: 0 0;
-//   position: absolute;
-//   top: -20px;
-//   border: 1px solid white;
-//   box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-// }
-
-
-
-
-// .drink-card {
-//   display: flex;
-//   align-items: center;
-//   height: 150px;
-//   width: 100%;
-//   flex-basis: 33%;
-//   margin-bottom: 5px;
-//   border-radius: 5px;
-//   background: rgb(152,152,152);
-//   background: linear-gradient(180deg, rgba(152,152,152,0.8673844537815126) 0%, rgba(70,70,70,1) 100%);
-//   transition: background-color 0.2s, color 0.2s;
-//   &:hover {
-//     text-decoration: none;
-//     background-color: grey;
-//     transform: translateY(-1px);
-//     transition: background-color 0.2s;
-//     h2 {
-//       color: orange;
-//       transition: color 0.2s;
-//     }
-//   }
-//   &:active {
-//     transform: transateY(1px);
-//   }
-// }
-
-// .drink-cards-container::after {
-//   content: '';
-//   flex: auto;
-// }
