@@ -7,21 +7,18 @@ h1, h2, h3, h4, h5, h6 {
   flex: 0 2 100%;
   max-width: 100%;
   height: 470px;
-  background-color: #BCBDA8;
+  background-color: #989884;
   padding: 20px;
   min-width: 340px;
   font-family: roboto;
   font-weight: lighter;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
   &:hover {
     text-decoration: none;
-    background-color: lightpink;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+    background-color: #e8e7b2;
     transform: translateY(-1px);
-    transition: background-color 0.2s, transform 0.2s;
-    h2 {
-      color: orange;
-      transition: color 0.2s;
-    }
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
   &:active {
     transform: transateY(1px);
@@ -100,6 +97,10 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -50px;
   right: 16px
+}
+
+.card-event-date-stacked {
+  text-align: center;
 }
 
 // .card-event-info {

@@ -8,20 +8,21 @@
           <p class="event-venue"><%= event.venue %></p>
         </div>
         <div class="card-event-info">
-          <div class="card-event-info-left align-items-center">
-            <div class="card-event-date d-flex align-items-center" style="height:  100%;">
-              <h3>7th</h3>
-              <div class="card-event-info-left-date-stacked">
-
-                <h5>Jul</h5>
+          <div class="card-event-info-left align-items-center mb-2">
+            <div class="card-event-date d-flex align-items-center">
+              <h1 class="align-text-bottom mb-0 mr-2">7th</h1>
+              <div class="card-event-date-stacked">
+                <small><h6 class="mb-1">Jul</h6></small>
                 <h5>(Fri)</h5>
               </div>
             </div>
+            <h5>6pm - 9pm</h5>
           </div>
           <div class="card-event-info-right">
             <img class="card-event-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="FACE">
             <p><%= event.user.email %></p>
-            <p><%= event.capacity %> capacity</p>
+            <p class="mb-0">2/<%= event.capacity %></p>
+            <p>capacity</p>
           </div>
         </div>
       </div>
