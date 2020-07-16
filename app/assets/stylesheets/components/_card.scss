@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 470px;
   background-color: #989884;
   padding: 20px;
-  min-width: 340px;
+  min-width: 330px;
   font-family: roboto;
   font-weight: lighter;
   transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -86,17 +86,19 @@ h1, h2, h3, h4, h5, h6 {
 .card-event-info-right {
   position: relative;
   text-align: center;
+  max-width: 104px;
+  word-wrap: break-word;
 }
 
 .card-event-avatar {
-  height: 56px;
-  width: 56px;
+  height: 64px;
+  width: 64px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
   position: absolute;
-  top: -50px;
-  right: 16px
+  top: -56px;
+  right: 14px;
 }
 
 .card-event-date-stacked {
