@@ -1,0 +1,19 @@
+<h2>Attendees</h2>
+<% accepted = [] %> NEED TO FIX THIS CAPACITY COUNTER LATER
+<p>Capacity: <%= accepted.length %> / <%= @event.capacity %> </p>
+<ul style="list-style-type:none">
+  <% @event.tickets.each do |ticket| %>
+  <li>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar dropdown-toggle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
+    <%= simple_form_for(ticket) do |f| %>
+    <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
+    <%= f.submit 'Accept', class:"btn btn-outline-primary"%>
+    <% end %>
+    <%= simple_form_for(ticket) do |f| %>
+    <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+    <%= f.submit 'Decline', class:"btn btn-outline-secondary"%>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
