@@ -31,8 +31,9 @@ def create_events(user)
       datetime: rand(Time.zone.now .. 4.days.from_now),
       venue: Faker::Restaurant.name,
       capacity: rand(2..8),
-      category: Faker::Restaurant.type
+      category: Faker::Restaurant.type,
     )
+    event.end_time = event.datetime + rand(1..3).hours
     event.user = user
     event.save
     3.times do
