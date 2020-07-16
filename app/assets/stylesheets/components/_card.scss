@@ -1,10 +1,23 @@
 .card-event {
-  flex-basis: 30%;
-  width: 380px;
+  flex: 0 2 100%;
+  max-width: 100%;
   height: 460px;
   background-color: #BCBDA8;
   padding: 20px;
   min-width: 340px;
+}
+
+
+@media screen and (min-width: 45em) {
+  .card-event {
+  flex: 0 2 calc(50% - 1em);
+  }
+}
+
+@media screen and (min-width: 72em) {
+  .card-event {
+  flex: 0 2 calc(33% - 1em);
+  }
 }
 
 .card-event-picture {
@@ -66,6 +79,18 @@
   right: 16px
 }
 
+// @media screen and (max-width: 50em) {
+//   .card-event {
+//     flex-basis: 70%;
+//   }
+// }
+
+// @media screen and (max-width: 35em) {
+//   .card-event {
+//     flex-basis: 100%;
+//   }
+// }
+
 // .card-event img {
 //   object-fit: cover;
 //   height: 100px;
@@ -100,17 +125,6 @@
 //   box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 // }
 
-// @media screen and (max-width: 50em) {
-//   .card-event {
-//     flex-basis: 49%;
-//   }
-// }
-
-// @media screen and (max-width: 35em) {
-//   .card-event {
-//     flex-basis: 100%;
-//   }
-// }
 
 
 
