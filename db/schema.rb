@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_07_16_092045) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "end_time"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
