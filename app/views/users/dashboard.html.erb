@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <h1><%= @user.name %></h1>
+
+
+  <div class="container-events">
+    <ul class="list-group list-group-horizontal">
+      <% @events.each do |event| %>
+        <li class="list-group-item"><%= link_to event.title, event_path(event) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

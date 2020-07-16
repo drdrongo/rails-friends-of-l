@@ -25,6 +25,10 @@ class EventPolicy < ApplicationPolicy
     user_is_host_or_admin?
   end
 
+  def dashboard?
+    true
+  end
+
   private
 
   def user_is_host_or_admin?
