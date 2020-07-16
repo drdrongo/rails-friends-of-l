@@ -2,6 +2,7 @@
 <div class="container-fluid">
   <div class="container-cards-events">
     <% @events.each do |event| %>
+    <%= link_to(event) do %>
       <% d = event.datetime %>
       <div class="card-event mb-3">
         <div class="card-event-picture">
@@ -21,12 +22,13 @@
           </div>
           <div class="card-event-info-right">
             <img class="card-event-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="FACE">
-            <p class="mb-2"><strong>Toshiaki</strong></p>
+            <p class="mb-2"><strong><%= event.user.name %></strong></p>
             <p class="mb-0">2/<%= event.capacity %></p>
             <p class="mb-0">capacity</p>
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
