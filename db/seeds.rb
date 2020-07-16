@@ -15,7 +15,8 @@ puts 'Database Cleared.'
 def create_users
   10.times do
     user = User.new(
-      email: Faker::Internet.safe_email,
+      name: Faker::Name.unique.first_name,
+      email: Faker::Internet.unique.safe_email,
       password: Faker::Internet.password(min_length: 10, max_length: 20),
     )
     user.save
