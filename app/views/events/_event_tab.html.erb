@@ -6,4 +6,9 @@
   <p> <%= event.datetime %></p>
   <h4> Category: <%= event.category %></h4>
   <p> Capacity: <%= event.capacity %></p>
+
+
+  <div class="container">
+      <%= render "shared/approval", event: event %>
+  </div>
 </div>
