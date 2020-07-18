@@ -17,6 +17,9 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="main-container" style="min-height: calc(100vh - 140px - 56px); padding-top: 16px; padding-bottom: 16px;">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

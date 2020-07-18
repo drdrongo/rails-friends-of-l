@@ -2,24 +2,33 @@
   text-align: center;
   background: white;
   border: 1px solid white;
-  width: 400px;
+  width: 350px;
   position: absolute; 
-  top: 200px;
-  right: 100px;
+  top: 100px;
+  right: 80px;
   padding-top: 16px;
+  padding-left: 16px;
+}
+
+.container-window ul {
+  padding: 0;
+  margin: 0;
 }
 
 .attendee {
   background: lightgrey;
   width: 90%;
   height: 80px;
-  padding: 16px;
+  padding: 8px;
   margin-bottom: 8px;
+  margin-right: 0;
 }
 
 .attendee .avatar {
   width: 56px;
   height: 56px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .attendee h5 {

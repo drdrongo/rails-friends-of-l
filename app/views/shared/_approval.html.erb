@@ -5,7 +5,13 @@
     <% event.tickets.where(status: "pending").each do |ticket| %>
     <li>
       <div class="d-flex attendee align-items-center justify-content-between">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar rounded-circle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
+        <% if ticket.user.photo.attached? %>
+          <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
+        <% else %>
+          <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
+        <% end %>
+        <%= ticket.user.name %>
+        
         <div class="d-flex align-items-center">
           <%= simple_form_for(ticket) do |f| %>
           <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
@@ -27,8 +33,12 @@
     <% event.tickets.where(status: "accepted").each do |ticket| %>
     <li>
       <div class="d-flex attendee align-items-center justify-content-between">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar rounded-circle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
-        <h5 class="font-italic pr-2">Accepted</h5>
+        <% if ticket.user.photo.attached? %>
+          <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
+        <% else %>
+          <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
+        <% end %>
+        <%= ticket.user.name %>        <h5 class="font-italic pr-2">Accepted</h5>
       </div>
     </li>
     <% end %>
