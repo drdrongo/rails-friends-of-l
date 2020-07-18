@@ -48,9 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-event-picture {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
-  background: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
-  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), url("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80");
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), attr(data-background-url);
   min-width: 300px;
   background-size: cover;
   height: 300px;

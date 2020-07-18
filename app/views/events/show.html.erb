@@ -14,11 +14,9 @@
     <p> Where: <%= @event.venue %></p>
     <p> Capacity: <%= @event.capacity %></p>
     <button type="button" class="btn btn-block btn-outline-secondary">Request to join</button>
+    <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+
   </div>
     <div style="flex-grow: 1"><%= render 'shared/approval', event: @event %></div>
   </div>
 
-<!-- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Breakfast
-</div>
- -->

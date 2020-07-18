@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :tickets, dependent: :destroy
   has_many :events, through: :tickets
+  has_one_attached :photo
 
   validates :email, :password, :name, presence: true
 end
