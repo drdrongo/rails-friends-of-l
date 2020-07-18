@@ -4,7 +4,11 @@
     <% @events.each do |event| %>
       <% d = event.datetime %>
       <div class="card-event mb-3">
-        <div class="card-event-picture">
+      <% background_url = event.photo.attached? ? cl_image_path(event.photo.key, height: 300, width: 300, crop: :fill)  : "https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80" %>
+
+        <div class="card-event-picture"
+        style="background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), url( <%= background_url %>);">
+
           <h1 class="event-title"><%= event.title %></h1>
           <p class="event-venue"><%= event.venue %></p>
         </div>
@@ -20,8 +24,12 @@
             <h5 class="ml-2"><%= d.strftime("%l:%M%P") %> - 9pm</h5>
           </div>
           <div class="card-event-info-right">
-            <img class="card-event-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="FACE">
-            <p class="mb-2"><strong>Toshiaki</strong></p>
+          <% if event.user.photo.attached? %>
+            <%= cl_image_tag(event.user.photo.key, class: "card-event-avatar") %>
+              <% else %>
+              <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "card-event-avatar") %>
+            <% end %>
+            <p class="mb-2"><strong><%= event.user.name %></strong></p>
             <p class="mb-0">2/<%= event.capacity %></p>
             <p class="mb-0">capacity</p>
           </div>

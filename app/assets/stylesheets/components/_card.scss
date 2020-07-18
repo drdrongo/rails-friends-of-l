@@ -41,9 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-event-picture {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.8) 100%), cl_image_tag(restaurant.photo.key);
-  background: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), cl_image_tag(restaurant.photo.key);
-  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), cl_image_tag(restaurant.photo.key);
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 30%, rgba(0, 0, 0, 0.8) 100%), attr(data-background-url);
   min-width: 300px;
   background-size: cover;
   height: 300px;

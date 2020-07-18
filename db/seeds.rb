@@ -19,6 +19,8 @@ def create_users
       email: Faker::Internet.unique.safe_email,
       password: Faker::Internet.password(min_length: 10, max_length: 20),
     )
+    file = URI.open("https://source.unsplash.com/featured/?face/adult&#{rand(10000)}")
+    user.photo.attach(io: file, filename: "#{user.name}.png", content_type: 'image/png')
     user.save
     create_events(user)
   end
@@ -34,6 +36,8 @@ def create_events(user)
       capacity: rand(2..8),
       category: Faker::Restaurant.type,
     )
+    file = URI.open("https://source.unsplash.com/featured/?japanese/food&#{rand(10000)}")
+    event.photo.attach(io: file, filename: "#{event.title}.png", content_type: 'image/png')
     event.end_time = event.datetime + rand(1..3).hours
     event.user = user
     event.save

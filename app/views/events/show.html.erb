@@ -6,3 +6,4 @@
 <p> Where: <%= @event.venue %></p>
 <p> Capacity: <%= @event.capacity %></p>
 <button type="button" class="btn btn-outline-secondary">Request to join</button>
+<%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
