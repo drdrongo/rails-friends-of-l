@@ -6,6 +6,12 @@ class TicketPolicy < ApplicationPolicy
   end
   
   def update?
-    true
+    user_is_host_or_admin?
+  end
+
+  private
+
+  def user_is_host_or_admin?
+    record.user == user || user.admin
   end
 end
