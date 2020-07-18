@@ -6,17 +6,24 @@
     <h1 class="mb-4"> <%= @event.title %> </h1>
     <h4> Category: <%= @event.category %></h4>
     <div class="flex host-info mb-3 mt-3">
-      <img class="avatar-bordered mr-3" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+    <% if @event.user.photo.attached? %>
+      <%= cl_image_tag(@event.user.photo.key, class: "avatar-large mr-3") %>
+        <% else %>
+        <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
+      <% end %>
       <p class="mb-0"> Hosted by <%= @event.user.name %></p>
     </div>
     <% if @event.photo.attached? %>
-      <%= cl_image_tag @event.photo.key, height: 300, width: 750, crop: :fill %>
-    <% end %>    
+
+    <%= cl_image_tag @event.photo.key, height: 400, width: 700, crop: :fill %>
+    <% else %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=700px>
+    <% end %>
+    
     <p class="mt-5"> Description: <%= @event.description %></p>
     <p> Where: <%= @event.venue %></p>
     <p> Capacity: <%= @event.capacity %></p>
     <button type="button" class="btn btn-block btn-outline-secondary">Request to join</button>
-    
 
   </div>
     <div style="flex-grow: 1"><%= render 'shared/approval', event: @event %></div>
