@@ -2,12 +2,12 @@
 
   <% if event.user != current_user %>
 
-    <% accepted = event.tickets.where(status: "accepted") %> 
+      <% accepted = event.tickets.where(status: "accepted") %> 
       <h2>Attendees (<%= accepted.length %> / <%= event.capacity %>)</h2>
       <ul style="list-style-type:none">
         <% event.tickets.where(status: "accepted").each do |ticket| %>
         <li>
-          <div class="d-flex attendee align-items-center justify-content-between">
+          <div class="d-flex attendee align-items-center">
             <% if ticket.user.photo.attached? %>
               <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
             <% else %>
@@ -60,7 +60,7 @@
         <% else %>
           <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
         <% end %>
-        <%= ticket.user.name %>        <h5 class="font-italic pr-2">Accepted</h5>
+        <%= ticket.user.name %><h5 class="font-italic pr-2">Accepted</h5>
       </div>
     </li>
     <% end %>

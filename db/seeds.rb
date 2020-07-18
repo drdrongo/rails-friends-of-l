@@ -29,7 +29,7 @@ end
 def create_events(user)
   1.times do
     event = Event.new(
-      title: Faker::Food.ing_form,
+      title: "#{Faker::Food.dish} with friends",
       description: "A bit long description of my great event! It'll be great!",
       datetime: rand(Time.zone.now .. 4.days.from_now),
       venue: Faker::Restaurant.name,
@@ -41,11 +41,12 @@ def create_events(user)
     event.end_time = event.datetime + rand(1..3).hours
     event.user = user
     event.save
-    3.times do
+    6.times do
       ticket = Ticket.new(
         event: event,
         user: User.all.to_a.reject!{ |u| u == event.user}.sample
       )
+      ticket.status = ['pending', 'accepted'].sample
       ticket.save
     end
   end
