@@ -12,6 +12,6 @@ class TicketPolicy < ApplicationPolicy
   private
 
   def user_is_host_or_admin?
-    record.user == user || user.admin
+    record.event.user == user || user.admin
   end
 end
