@@ -1,19 +1,38 @@
-<h2>Attendees</h2>
-<% accepted = [] %> NEED TO FIX THIS CAPACITY COUNTER LATER
-<p>Capacity: <%= accepted.length %> / <%= event.capacity %> </p>
-<ul style="list-style-type:none">
-  <% event.tickets.each do |ticket| %>
-  <li>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar dropdown-toggle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
-    <%= simple_form_for(ticket) do |f| %>
-    <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
-    <%= f.submit 'Accept', class:"btn btn-outline-primary"%>
+<div class="container-window">
+  <% accepted = event.tickets.where(status: "accepted") %> 
+  <h2>Attendees (<%= accepted.length %> / <%= event.capacity %>)</h2>
+  <ul style="list-style-type:none">
+    <% event.tickets.where(status: "pending").each do |ticket| %>
+    <li>
+      <div class="d-flex attendee align-items-center justify-content-between">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar rounded-circle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
+        <div class="d-flex align-items-center">
+          <%= simple_form_for(ticket) do |f| %>
+          <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
+          <%= button_tag type: 'submit', class: "my-button btn-accept" do %>
+              <i class="far fa-check-circle"></i>
+          <% end %>
+          <% end %>
+          <%= simple_form_for(ticket) do |f| %>
+          <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+          <%= button_tag type: 'submit', class: "my-button btn-decline" do %>
+              <i class="far fa-times-circle"></i>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </li>
     <% end %>
-    <%= simple_form_for(ticket) do |f| %>
-    <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
-    <%= f.submit 'Decline', class:"btn btn-outline-secondary"%>
+
+    <% event.tickets.where(status: "accepted").each do |ticket| %>
+    <li>
+      <div class="d-flex attendee align-items-center justify-content-between">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar rounded-circle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
+        <h5 class="font-italic pr-2">Accepted</h5>
+      </div>
+    </li>
     <% end %>
-  </li>
-  <% end %>
-</ul>
+
+  </ul>
+</div>
 
