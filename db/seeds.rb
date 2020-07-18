@@ -29,7 +29,7 @@ end
 def create_events(user)
   1.times do
     event = Event.new(
-      title: Faker::Verb.ing_form,
+      title: Faker::Food.ing_form,
       description: "A bit long description of my great event! It'll be great!",
       datetime: rand(Time.zone.now .. 4.days.from_now),
       venue: Faker::Restaurant.name,
