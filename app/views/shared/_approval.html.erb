@@ -2,7 +2,7 @@
   <% accepted = event.tickets.where(status: "accepted") %> 
   <h2>Attendees (<%= accepted.length %> / <%= event.capacity %>)</h2>
   <ul style="list-style-type:none">
-    <% event.tickets.where(status: "pending") do |ticket| %>
+    <% event.tickets.where(status: "pending").each do |ticket| %>
     <li>
       <div class="d-flex attendee align-items-center justify-content-between">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar rounded-circle mr-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %><%= ticket.user.name %>
