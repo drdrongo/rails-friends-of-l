@@ -1,12 +1,18 @@
-<div class="container-fluid">
-  <h1><%= @user.name %></h1>
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <ul class="nav nav-tabs">
+    <% @events.each do |event| %>
+      <li>
+        <a data-toggle="tab" class="nav-link" href="#<%="#{event.title}"%>"><%= event.title %></a>
+      </li>
+    <% end %>
+  </ul>
 
-
-  <div class="container-events">
-    <ul class="list-group list-group-horizontal">
-      <% @events.each do |event| %>
-        <li class="list-group-item"><%= link_to event.title, event_path(event) %></li>
-      <% end %>
-    </ul>
+  <div class="tab-content">
+    <% @events.each do |event| %>
+      <div id="<%="#{event.title}"%>" class="tab-pane fade in">
+        <%= render "events/event_tab", event: event %>
+      </div>
+    <% end %>
   </div>
 </div>
