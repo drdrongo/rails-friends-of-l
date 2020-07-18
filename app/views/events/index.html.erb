@@ -2,6 +2,7 @@
 <div class="container-fluid">
   <div class="container-cards-events">
     <% @events.each do |event| %>
+    <%= link_to(event) do %>
       <% d = event.datetime %>
       <div class="card-event mb-3">
       <% background_url = event.photo.attached? ? cl_image_path(event.photo.key, height: 300, width: 300, crop: :fill)  : "https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80" %>
@@ -35,6 +36,7 @@
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>

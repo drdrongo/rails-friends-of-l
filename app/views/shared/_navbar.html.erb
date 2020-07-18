@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://images.squarespace-cdn.com/content/5eec60c93b09b86005154cce/1594183751882-RO2PIKVT9OLMSBN2WA0H/%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88+2.png?content-type=image%2Fpng" %>
   <% end %>
-
+<div>
     <ul class="navbar-nav mr-auto">
     <% if user_signed_in? %>
 
@@ -10,16 +10,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse topnav-right" id="navbarSupportedContent">
 
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Events", "/", class: "nav-link" %>
+          <%= link_to "My Events", "/dashboard", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Events", "/", class: "nav-link" %>
+          <%= link_to "All Events", "/events", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Create Events", "/events/new", class: "nav-link" %>
         </li>
 
 
@@ -39,5 +42,7 @@
 
       <% end %>
     </ul>
+
+</div>
   </div>
 </div>

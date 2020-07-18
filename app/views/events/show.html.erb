@@ -1,9 +1,22 @@
-<p> <%= @event.datetime %></p>
-<h1> <%= @event.title %> </h1>
-<h4> Category: <%= @event.category %></h4>
-<p> Hosted by <%= @event.user.email %></p>
-<p> Description: <%= @event.description %></p>
-<p> Where: <%= @event.venue %></p>
-<p> Capacity: <%= @event.capacity %></p>
-<button type="button" class="btn btn-outline-secondary">Request to join</button>
-<%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container flex">
+  <div class="event-container" style="flex-grow: 10">
+    <div class="time-font">
+      <p> <%= @event.datetime %></p>
+    </div class="event-title">
+    <h1 class="mb-4"> <%= @event.title %> </h1>
+    <h4> Category: <%= @event.category %></h4>
+    <div class="flex host-info mb-3 mt-3">
+      <img class="avatar-bordered mr-3" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+      <p class="mb-0"> Hosted by <%= @event.user.name %></p>
+    </div>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=750px>
+    <p class="mt-5"> Description: <%= @event.description %></p>
+    <p> Where: <%= @event.venue %></p>
+    <p> Capacity: <%= @event.capacity %></p>
+    <button type="button" class="btn btn-block btn-outline-secondary">Request to join</button>
+    <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
+
+  </div>
+    <div style="flex-grow: 1"><%= render 'shared/approval', event: @event %></div>
+  </div>
+

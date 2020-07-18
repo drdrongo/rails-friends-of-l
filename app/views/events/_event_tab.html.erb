@@ -1,0 +1,14 @@
+<div class="container">
+  <h1> <%= event.title %> </h1>
+  <h2> Hosted by <%= event.user.name %></h2>
+  <p> Description: <%= event.description %></p>
+  <p> Where: <%= event.venue %></p>
+  <p> <%= event.datetime %></p>
+  <h4> Category: <%= event.category %></h4>
+  <p> Capacity: <%= event.capacity %></p>
+
+
+  <div class="container">
+      <%= render "shared/approval", event: event %>
+  </div>
+</div>

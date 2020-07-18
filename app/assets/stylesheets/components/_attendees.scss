@@ -1,0 +1,52 @@
+.container-window {
+  text-align: center;
+  background: white;
+  border: 1px solid white;
+  width: 400px;
+  position: absolute; 
+  top: 200px;
+  right: 100px;
+  padding-top: 16px;
+}
+
+.attendee {
+  background: lightgrey;
+  width: 90%;
+  height: 80px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.attendee .avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.attendee h5 {
+  padding-top: 8px;
+  color: green;
+}
+
+.my-button {
+  background-color: inherit;
+  border: none;
+  padding: none;
+  font-size: 32px;
+  float: right;
+  line-height: 100%;
+  padding-bottom: 16px;
+}
+
+.btn-decline {
+  color: maroon;
+  &:hover {
+    color: red;
+  }
+}
+
+.btn-accept {
+  color: green;
+  &:hover {
+    color: lightgreen;
+  }
+}
