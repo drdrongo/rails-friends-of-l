@@ -30,7 +30,7 @@
               <% else %>
               <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "card-event-avatar") %>
             <% end %>
-            <p class="mb-2"><strong><%= event.user.name %></strong></p>
+            <p class="mb-2"><strong><%= event.user.first_name %></strong></p>
             <p class="mb-0">2/<%= event.capacity %></p>
             <p class="mb-0">capacity</p>
           </div>

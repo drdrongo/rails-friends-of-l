@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :find_user, only: [:show, :destroy, :edit, :update]
+		before_action :find_user, only: [:show, :destroy, :edit, :update]
 
 	def dashboard
 		@user = current_user
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		raise
 		if @user.save
 			redirect_to :index
 		else
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :password, :photo)
+		params.require(:user).permit(:first_name, :last_name, :description, :birthday, :email, :password, :photo)
 	end
 
 	def find_user

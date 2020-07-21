@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :events, through: :tickets
   has_one_attached :photo
 
-  validates :email, :password, :name, presence: true
+  validates :email, :password, :first_name, :last_name, presence: true
 end
