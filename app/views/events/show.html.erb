@@ -1,31 +1,38 @@
 <div class="container flex">
-  <div class="event-container" style="flex-grow: 10">
+  <div class="event-container" style="flex-grow: 4">
     <div class="time-font">
       <p> <%= @event.datetime %></p>
     </div class="event-title">
     <h1 class="mb-4"> <%= @event.title %> </h1>
     <h4> Category: <%= @event.category %></h4>
     <div class="flex host-info mb-3 mt-3">
-    <% if @event.user.photo.attached? %>
-      <%= cl_image_tag(@event.user.photo.key, class: "avatar-large mr-3") %>
-        <% else %>
+      <% if @event.user.photo.attached? %>
+        <%= cl_image_tag(@event.user.photo.key, class: "avatar-large mr-3") %>
+      <% else %>
         <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
       <% end %>
       <p class="mb-0"> Hosted by <%= @event.user.name %></p>
     </div>
     <% if @event.photo.attached? %>
-
-    <%= cl_image_tag @event.photo.key, height: 400, width: 700, crop: :fill %>
+      <%= cl_image_tag @event.photo.key, height: 400, width: 700, crop: :fill %>
     <% else %>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=700px>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=700px>
     <% end %>
-    
     <p class="mt-5"> Description: <%= @event.description %></p>
     <p> Where: <%= @event.venue %></p>
     <p> Capacity: <%= @event.capacity %></p>
-    <button type="button" class="btn btn-block btn-outline-secondary">Request to join</button>
-
   </div>
-    <div style="flex-grow: 1"><%= render 'shared/approval', event: @event %></div>
+  <div style="flex-grow: 1">
+    <% ticket = Ticket.where(user: current_user, event: @event) %>
+    <% if ticket.exists? %>
+      <button class="btn btn-block btn-outline-secondary" disabled>Request Sent</button>
+    <% else %>
+      <%= simple_form_for [@event, @ticket] do |f| %>
+        <%= f.input :status, as: :hidden %>
+        <%= f.submit "Request to join", class: "btn btn-block btn-outline-primary"%>
+      <% end %>
+    <% end %>
+    <div> <%= render 'shared/approval', event: @event %> </div>
   </div>
+</div>
 

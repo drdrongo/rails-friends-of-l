@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @ticket = Ticket.new
     authorize @event
   end
 
