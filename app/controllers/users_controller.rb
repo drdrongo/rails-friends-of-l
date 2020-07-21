@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :find_user, only: [:show, :destroy, :edit, :update]
+		before_action :find_user, only: [:show, :destroy, :edit, :update]
 
 	def dashboard
 		@user = current_user

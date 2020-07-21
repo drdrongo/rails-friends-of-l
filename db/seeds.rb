@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts 'Clearing database...'
 Ticket.destroy_all
 Event.destroy_all
@@ -22,9 +14,11 @@ def create_users
       description: "This is a great description of my personality! I'm a great person!",
       birthday: rand(52.years.ago .. 20.years.ago)
     )
-    file = URI.open("https://source.unsplash.com/featured/?face/adult&#{rand(10000)}")
-    user.photo.attach(io: file, filename: "#{user.name}.png", content_type: 'image/png')
-    user.save
+    file = URI.open("https://i.pravatar.cc/500")
+    user.photo.attach(io: file, filename: "#{user.first_name}_#{user.last_name}.png", content_type: 'image/png')
+    if user.save
+      puts "User #{user.first_name} created"
+    end
     create_events(user)
   end
 end
@@ -48,9 +42,9 @@ def create_events(user)
     6.times do
       ticket = Ticket.new(
         event: event,
-        user: used_users.sample
+        user: unused_users.sample
       )
-      unused_users.drop(ticket.user.id)
+      unused_users.delete(ticket.user)
       ticket.status = ['pending', 'accepted'].sample
       ticket.save
     end
