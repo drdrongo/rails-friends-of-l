@@ -4,9 +4,13 @@ class TicketPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def update?
     user_is_host_or_admin?
+  end
+
+  def create?
+    true
   end
 
   private

@@ -1,10 +1,22 @@
 class TicketsController < ApplicationController
 
+  def create
+    @ticket = Ticket.new(ticket_params)
+    @event = Event.find(params[:event_id])
+    @ticket.user = current_user
+    @ticket.event = @event
+    authorize @ticket
+    if @ticket.save
+      redirect_to event_path(@event)
+    else
+      render "events/show"
+    end
+  end
 
   def update
     @ticket = Ticket.find(params[:id])
     authorize @ticket
-    
+
     @ticket.update(ticket_params)
     redirect_back fallback_location: event_path(@ticket.event)
   end
