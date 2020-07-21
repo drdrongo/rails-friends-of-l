@@ -13,7 +13,7 @@
             <% else %>
               <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
             <% end %>
-            <%= ticket.user.name %> 
+            <%= ticket.user.first_name %> 
           </div>
         </li>
         <% end %>
@@ -32,7 +32,7 @@
         <% else %>
           <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
         <% end %>
-        <%= ticket.user.name %>
+        <%= ticket.user.first_name %>
         
         <div class="d-flex align-items-center">
           <%= simple_form_for(ticket) do |f| %>
@@ -60,7 +60,7 @@
         <% else %>
           <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
         <% end %>
-        <%= ticket.user.name %><h5 class="font-italic pr-2">Accepted</h5>
+        <%= ticket.user.first_name %><h5 class="font-italic pr-2">Accepted</h5>
       </div>
     </li>
     <% end %>
