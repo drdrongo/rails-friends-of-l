@@ -3,9 +3,10 @@ class UsersController < ApplicationController
 
 	def dashboard
 		@user = current_user
-		@events = Event.where(user: @user)
+		@hosting = @user.events_as_host
+		@accepted = @user.events.joins(:tickets).where("tickets.status = ?", "accepted")
+		@pending = @user.events.joins(:tickets).where("tickets.status = ?", "pending")
 		authorize @user
-		authorize @events
 	end
 
 	def show
@@ -40,6 +41,12 @@ class UsersController < ApplicationController
 		@user.destroy
 		redirect_to :index
 	end
+
+	def load_event_tab
+		respond_to do |format|               
+			format.js
+		end        
+	end 
 
 	private
 
