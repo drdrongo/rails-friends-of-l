@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :destroy
   has_many :events, through: :tickets
   has_one_attached :photo
+  has_many :events_as_host, foreign_key: :user_id, class_name: "Event"
 
   validates :email, :password, :first_name, :last_name, presence: true
 end
