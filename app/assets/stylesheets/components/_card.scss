@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   .container-cards-events a {
     flex: 0 2 calc(50% - 1em);
   }
-  
+
 }
 @media screen and (min-width: 72em) {
   .container-cards-events a {
@@ -96,6 +96,15 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   line-height: 1.3;
   padding-top: 8px;
+}
+
+.card-event-info-show {
+  background: white;
+}
+
+.card-sticky {
+  position: sticky;
+  top: 5;
 }
 
 .card-event-avatar {
