@@ -1,0 +1,44 @@
+<div class="event-container flex" style="flex-grow: 4">
+  <div>
+    <h5 class="bm-3"> <%= image_tag 'cutlery@4x.png', height:30 %>  <%= @event.category %></h4>
+    <div class="event-title-show mb-4"><h1> <%= @event.title %> </h1></div>
+    <div class="flex host-info mb-3 mt-3">
+      <% if @event.user.photo.attached? %>
+        <%= cl_image_tag(@event.user.photo.key, class: "avatar-large mr-3") %>
+      <% else %>
+        <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
+      <% end %>
+      <p class="mb-0"> Hosted by <%= @event.user.first_name %></p>
+    </div>
+    <div class="flex" >
+      <div>
+        <% if @event.photo.attached? %>
+          <%= cl_image_tag @event.photo.key, height: 400, width: 700, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=700px>
+        <% end %>
+        <p class="mt-5"> Description: <%= @event.description %></p>
+      </div>
+      <div class="card-sticky ml-3" >
+        <div class="p-3 mb-3 card-event-info-show">
+          <% d = @event.datetime %>
+          <p> <%= image_tag "time-alarm@4x.png", height:30 %> <%= d.strftime("%a, %b %d, %Y %l:%M %p") %></p>
+          <p class="mb-0"> <%= image_tag "pin-star@4x.png", height:30 %> <%= @event.venue %></p>
+        </div>
+        <div> <%= render 'shared/approval', event: @event %> </div>
+        <div style="flex-grow: 1">
+        <% ticket = Ticket.where(user: current_user, event: @event) %>
+        <% if ticket.exists? %>
+          <button class="btn btn-block btn-outline-secondary" disabled>Request Sent</button>
+        <% else %>
+          <%= simple_form_for [@event, @ticket] do |f| %>
+            <%= f.input :status, as: :hidden %>
+            <%= f.submit "Request to join", class: "btn btn-block btn-outline-primary"%>
+          <% end %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+
+
+</div>
