@@ -21,7 +21,7 @@
       <% events.each do |event| %>
         <li class="nav-item">
           <a class="nav-link <%= event.user == current_user ? 'tab-host' : 'tab-attendee' %>" id="event-<%=event.id%>-tab" data-toggle="tab" href="#event-<%=event.id%>" role="tab" aria-controls="event-<%=event.id%>" aria-selected="false">
-          <%=event.title%>
+            <h6 class="ellipsis"><%=event.title%></h6>
           </a>
         </li>
       <% end %>
