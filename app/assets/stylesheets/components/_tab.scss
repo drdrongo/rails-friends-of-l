@@ -1,3 +1,15 @@
+#myTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+#myTab li {
+  min-width: 0px;
+}
+
 .tab-host {
   background-color: purple;
 }
@@ -12,24 +24,14 @@
 
 .nav-link {
   text-decoration: none;
-}
-
-.side-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: calc(100vh - 140px - 56px);
-  width: 100px;
-  background-color: pink;
-  text-align: center;
-  padding-top: 24px;
-}
-
-.side-bar .side-link {
-  padding: 8px;
+  color: black;
   border: 1px solid white;
-  color: white;
-  background-color: turquoise;
-  text-align: center;
-  width: 64px;
+  margin-right: 2px;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
 }

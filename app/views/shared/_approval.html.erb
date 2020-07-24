@@ -1,69 +1,63 @@
 <div class="container-window">
 
-  <% if event.user != current_user %>
 
-      <% accepted = event.tickets.where(status: "accepted") %>
-      <h2>Attendees (<%= accepted.length %> / <%= event.capacity %>)</h2>
-      <ul style="list-style-type:none">
-        <% event.tickets.where(status: "accepted").each do |ticket| %>
+  <% accepted = event.tickets.where(status: "accepted") %>
+  <h2>Attendees (<%= accepted.length + 1 %>)</h2>
+  <ul style="list-style-type:none">
+    <li>
+      <div class="d-flex attendee align-items-center">
+        <%= render "shared/avatar", user: current_user %>
+        <p class="mb-0"><%= current_user.first_name.capitalize %> (Host)</p>
+      </div>
+    </li>
+
+    <% if event.user != current_user %>
+
+      <% accepted.each do |ticket| %>
         <li>
           <div class="d-flex attendee align-items-center">
-            <% if ticket.user.photo.attached? %>
-              <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
-            <% else %>
-              <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
-            <% end %>
+            <%= render "shared/avatar", user: ticket.user %>
             <%= ticket.user.first_name %> 
           </div>
         </li>
-        <% end %>
-    </ul>
+      <% end %>
 
-  <% else %>
+    <% else %>
 
-  <% accepted = event.tickets.where(status: "accepted") %>
-  <h2>Attendees (<%= accepted.length %> / <%= event.capacity %>)</h2>
-  <ul style="list-style-type:none">
-    <% event.tickets.where(status: "pending").each do |ticket| %>
-    <li>
-      <div class="d-flex attendee align-items-center justify-content-between">
-        <% if ticket.user.photo.attached? %>
-          <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
-        <% else %>
-          <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
-        <% end %>
-        <%= ticket.user.first_name %>
-        <div class="d-flex align-items-center">
-          <%= simple_form_for(ticket) do |f| %>
-          <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
-          <%= button_tag type: 'submit', class: "my-button btn-accept" do %>
-              <i class="far fa-check-circle"></i>
-          <% end %>
-          <% end %>
-          <%= simple_form_for(ticket) do |f| %>
-          <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
-          <%= button_tag type: 'submit', class: "my-button btn-decline" do %>
-              <i class="far fa-times-circle"></i>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </li>
-    <% end %>
+      <% event.tickets.where(status: "pending").each do |ticket| %>
+        <li>
+          <div class="d-flex attendee align-items-center justify-content-between">
+            <%= render "shared/avatar", user: ticket.user %>
+            <%= ticket.user.first_name %>
 
-    <% event.tickets.where(status: "accepted").each do |ticket| %>
-    <li>
-      <div class="d-flex attendee align-items-center justify-content-between">
-        <% if ticket.user.photo.attached? %>
-          <%= cl_image_tag(ticket.user.photo.key, class: "avatar rounded-circle mr-3") %>
-        <% else %>
-          <%= image_tag("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80", class: "avatar rounded-circle mr-3") %>
-        <% end %>
-        <%= ticket.user.first_name %><h5 class="font-italic pr-2">Accepted</h5>
-      </div>
-    </li>
+            <div class="d-flex align-items-center">
+              <%= simple_form_for(ticket) do |f| %>
+                <%= f.input :status, input_html: { value: "accepted" }, as: :hidden %>
+                <%= button_tag type: 'submit', class: "my-button btn-accept" do %>
+                  <i class="far fa-check-circle"></i>
+                <% end %>
+              <% end %>
+              <%= simple_form_for(ticket) do |f| %>
+                <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+                <%= button_tag type: 'submit', class: "my-button btn-decline" do %>
+                  <i class="far fa-times-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+
+      <% accepted.each do |ticket| %>
+        <li>
+          <div class="d-flex attendee align-items-center justify-content-between">
+            <%= render "shared/avatar", user: ticket.user %>
+            <%= ticket.user.first_name %><h5 class="font-italic pr-2">Accepted</h5>
+          </div>
+        </li>
+      <% end %>
+
     <% end %>
   </ul>
-  <% end %>
 </div>
 

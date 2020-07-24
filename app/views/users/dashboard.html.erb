@@ -5,7 +5,7 @@
     <%= link_to "Pending", dashboard_path(tab: 'pending'), class: "side-link" %>
   </div>
 
-  <div class="container">
+  <div class="container container-events-tab">
     <% if params[:tab] == "hosting" %>
       <h1>Events you're hosting</h1>
       <%= render "users/events", events: @hosting %>
