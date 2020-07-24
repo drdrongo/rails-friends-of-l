@@ -18,7 +18,7 @@
 
   <div class="tab-content" id="myTabContent">
     <% events.each do |event| %>
-      <div class="tab-pane fade <%= 'show active' if events.first == event %>" id="event-<%=event.id%>" role="tabpanel" aria-labelledby="event-<%=event.id%>-tab">
+      <div class="tab-pane fade py-3 <%= 'show active' if events.first == event %>" id="event-<%=event.id%>" role="tabpanel" aria-labelledby="event-<%=event.id%>-tab">
         <%= render "shared/event_details", event: event %>
       </div>
     <% end %>
