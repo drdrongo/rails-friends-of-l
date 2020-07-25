@@ -22,8 +22,11 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :birthday,
+                required: true, html_5: true,
+                input_html: { autocomplete: "birthday" }%>
+    <%= f.input :description,
                 required: true,
-                input_html: { autocomplete: "age" }%>
+                input_html: { autocomplete: "description" }%>
     <%= f.input :photo, as: :file %>
   </div>
 

@@ -3,17 +3,20 @@
   <% accepted = event.tickets.where(status: "accepted") %>
   <h2>Attendees (<%= accepted.length + 1 %>)</h2>
   <ul style="list-style-type:none">
+
     <li class="d-flex attendee align-items-center">
-      <%= render "shared/avatar", user: event.user %>
-      <p class="mb-0"><%= event.user.first_name.capitalize %> (Host)</p>
+        <%= render "shared/avatar", user: current_user %>
+        <p class="mb-0"><%= link_to current_user.first_name.capitalize, user_path %> (Host)</p>
     </li>
 
     <% if event.user != current_user %>
 
       <% accepted.each do |ticket| %>
-        <li class="d-flex attendee align-items-center">
-          <%= render "shared/avatar", user: ticket.user %>
-          <%= ticket.user.first_name %> 
+        <li>
+          <div class="d-flex attendee align-items-center">
+            <%= render "shared/avatar", user: ticket.user %>
+            <%= link_to ticket.user.first_name, user_path %>
+          </div>
         </li>
       <% end %>
 
@@ -23,7 +26,7 @@
         <li>
           <div class="d-flex attendee align-items-center justify-content-between">
             <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %>
+            <%= link_to ticket.user.first_name, user_path %>
 
             <div class="d-flex align-items-center">
               <%= simple_form_for(ticket) do |f| %>
@@ -47,7 +50,7 @@
         <li>
           <div class="d-flex attendee align-items-center justify-content-between">
             <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %><h5 class="font-italic pr-2">Accepted</h5>
+            <%= link_to ticket.user.first_name, user_path %><h5 class="font-italic pr-2">Accepted</h5>
           </div>
         </li>
       <% end %>
