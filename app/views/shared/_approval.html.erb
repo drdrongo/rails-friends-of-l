@@ -5,8 +5,8 @@
   <ul style="list-style-type:none">
 
     <li class="d-flex attendee align-items-center">
-        <%= render "shared/avatar", user: current_user %>
-        <p class="mb-0 text-decoration-none"><%= link_to current_user.first_name.capitalize, user_path(current_user) %> (Host)</p>
+        <%= render "shared/avatar", user: event.user %>
+        <p class="mb-0 text-decoration-none"><%= link_to event.user.first_name.capitalize, user_path(event.user) %> (Host)</p>
     </li>
 
     <% if event.user != current_user %>
