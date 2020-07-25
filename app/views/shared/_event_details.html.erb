@@ -27,8 +27,8 @@
         <div class="p-3 mb-3 card-event-info-show">
           <% d = event.datetime %>
           <p> <%= image_tag "time-alarm@4x.png", height:30 %> <%= d.strftime("%a, %b %d %l:%M %p") %></p>
-          <p> <%= image_tag "pin-star@4x.png",   height:30 %> <%= event.venue %></p>
-          <% if Ticket.where(user: current_user, event: event, status: "accepted") %>
+          <p><%= image_tag "pin-star@4x.png",   height:30 %> <%= event.venue %></p>
+          <% if Ticket.where(user: current_user, event: event, status: "accepted").exists? %>
             <p> <%= image_tag "pin-star@4x.png",   height:30 %> <%= event.user.email %></p>
           <% end %>
         </div>
