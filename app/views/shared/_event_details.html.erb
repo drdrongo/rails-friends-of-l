@@ -5,14 +5,34 @@
     <div class="event-title-show mb-4">
       <h1><%= event.title %></h1>
     </div>
-    <div class="flex align-items-center host-info my-3">
-      <% if event.user.photo.attached? %>
-        <%= link_to cl_image_tag(event.user.photo.key, class: "avatar-large mr-3"), user_path(event.user) %>
-      <% else %>
-        <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
-      <% end %>
-      <p class="mb-0"> Hosted by <%= link_to event.user.first_name.capitalize, user_path(event.user) %></p>
+
+
+    <div class="flex">
+      <div class="flex align-items-center host-info my-3" >
+        <% if event.user.photo.attached? %>
+          <%= link_to cl_image_tag(event.user.photo.key, class: "avatar-large mr-3"), user_path(event.user) %>
+        <% else %>
+          <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
+        <% end %>
+        <p class="mb-0 text-decoration-none"> Hosted by <%= link_to event.user.first_name.capitalize, user_path(event.user) %></p>
+      </div>
+      <div>
+        <% if event.user != current_user %>
+            <div>
+              <% if Ticket.where(user: current_user, event: event).exists? %>
+                <button class="btn  btn-outline-secondary button-request-grey" disabled>Request Sent</button>
+              <% else %>
+                <%= simple_form_for [event, Ticket.new] do |f| %>
+                  <%= f.input :status, as: :hidden %>
+                  <%= f.submit "Request to join", class: "btn btn-outline-primary button-green button-request-green"%>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
     </div>
+
+
     <div class="flex" >
       <div>
         <% if event.photo.attached? %>
@@ -35,18 +55,7 @@
 
         <div class="mb-3"><%= render 'shared/approval', event: event %></div>
 
-        <% if event.user != current_user %>
-          <div>
-            <% if Ticket.where(user: current_user, event: event).exists? %>
-              <button class="btn btn-block btn-outline-secondary" disabled>Request Sent</button>
-            <% else %>
-              <%= simple_form_for [event, Ticket.new] do |f| %>
-                <%= f.input :status, as: :hidden %>
-                <%= f.submit "Request to join", class: "btn btn-block btn-outline-primary button-green"%>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
+
       </div>
     </div>
   </div>
