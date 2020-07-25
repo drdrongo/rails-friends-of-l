@@ -1,8 +1,14 @@
 <div class="d-flex">
   <div class="side-bar">
-    <%= link_to "Hosting", dashboard_path(tab: 'hosting'), class: "side-link" %>
-    <%= link_to "Accepted", dashboard_path(tab: 'accepted'), class: "side-link" %>
-    <%= link_to "Pending", dashboard_path(tab: 'pending'), class: "side-link" %>
+    <%= link_to dashboard_path(tab: 'hosting'), class: "side-link" do %>
+      <%= image_tag "event-confirm@4x.png", class: "side-link-icon" %>
+    <% end %>
+    <%= link_to dashboard_path(tab: 'accepted'), class: "side-link" do %>
+      <%= image_tag "ticket@4x.png", class: "side-link-icon" %>
+    <% end %>
+    <%= link_to dashboard_path(tab: 'pending'), class: "side-link" do %>
+      <%= image_tag "hourglass@4x.png", class: "side-link-icon" %>
+    <% end %>
   </div>
 
   <div class="container container-events-tab">
