@@ -5,14 +5,15 @@
     <div class="event-title-show mb-4">
       <h1><%= event.title %></h1>
     </div>
+
     <div class="flex">
       <div class="flex align-items-center host-info my-3" >
         <% if event.user.photo.attached? %>
-          <%= link_to cl_image_tag(event.user.photo.key, class: "avatar-large mr-3"), user_path %>
+          <%= link_to cl_image_tag(event.user.photo.key, class: "avatar-large mr-3"), user_path(event.user) %>
         <% else %>
           <%= image_tag("https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80", class: "avatar-large") %>
         <% end %>
-        <p class="mb-0"> Hosted by <%= link_to event.user.first_name.capitalize, user_path %></p>
+        <p class="mb-0"> Hosted by <%= link_to event.user.first_name.capitalize, user_path(event.user) %></p>
       </div>
       <div>
         <% if event.user != current_user %>
@@ -28,7 +29,6 @@
             </div>
           <% end %>
       </div>
-
     </div>
 
 
