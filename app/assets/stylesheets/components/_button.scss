@@ -9,3 +9,15 @@
   color: $green;
   border: 2px solid $green;
 }
+
+.button-request-green {
+  flex-grow: 1;
+  width: 360px;
+  margin-top: 16px;
+}
+
+.button-request-grey {
+  flex-grow: 1;
+  width: 360px;
+  margin-top: 32px;
+}
