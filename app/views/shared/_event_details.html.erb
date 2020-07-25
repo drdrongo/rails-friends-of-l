@@ -1,6 +1,7 @@
 <div class="event-container flex" style="flex-grow: 4">
   <div>
-    <h5 class="mb-3"> <%= image_tag 'cutlery@4x.png', height:30 %>  <%= event.category %></h5>
+    <% category_icon = event.category == 'Cooking' ? 'chef@4x.png' : 'cutlery@4x.png' %>
+    <h5 class="mb-3"> <%= image_tag category_icon, height:30 %>  <%= event.category %></h5>
     <div class="event-title-show mb-4">
       <h1><%= event.title %></h1>
     </div>
