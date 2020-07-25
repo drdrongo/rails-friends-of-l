@@ -11,4 +11,28 @@
 .side-link-icon {
   width: 40px;
   height: 40px;
+  
+}
+
+.side-link {
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.side-bar a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+.text-decoration-none {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
 }
