@@ -12,17 +12,14 @@
 
       <div class="collapse navbar-collapse topnav-right" id="navbarSupportedContent">
 
-        <li class="nav-item active">
-          <%= link_to "Home", "/", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "My Events", "/dashboard", class: "nav-link #{"active" if params[:controller] == "users" && params[:action] == "dashboard"}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Events", "/dashboard", class: "nav-link" %>
+          <%= link_to "All Events", "/events", class: "nav-link #{"active" if params[:controller] == "events" && params[:action] == "index"}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Events", "/events", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Create Events", "/events/new", class: "nav-link" %>
+          <%= link_to "Create Events", "/events/new", class: "nav-link #{"active" if params[:controller] == "events" && params[:action] == "new"}" %>
         </li>
 
 
@@ -42,9 +39,7 @@
 
       <div class="collapse navbar-collapse topnav-right" id="navbarSupportedContent">
 
-        <li class="nav-item active">
-          <%= link_to "Home", "/", class: "nav-link" %>
-        </li>
+
         <li class="nav-item">
           <%= link_to "All Events", "/events", class: "nav-link" %>
         </li>
