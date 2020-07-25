@@ -39,7 +39,7 @@
             <% else %>
               <%= simple_form_for [event, Ticket.new] do |f| %>
                 <%= f.input :status, as: :hidden %>
-                <%= f.submit "Request to join", class: "btn btn-block btn-outline-primary"%>
+                <%= f.submit "Request to join", class: "btn btn-block btn-outline-primary button-green"%>
               <% end %>
             <% end %>
           </div>
