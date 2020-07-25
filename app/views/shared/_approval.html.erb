@@ -6,8 +6,8 @@
   <ul style="list-style-type:none">
     <li>
       <div class="d-flex attendee align-items-center">
-        <%= render "shared/avatar", user: current_user %>
-        <p class="mb-0"><%= current_user.first_name.capitalize %> (Host)</p>
+        <%= render "shared/avatar", user: event.user %>
+        <p class="mb-0"><%= event.user.first_name.capitalize %> (Host)</p>
       </div>
     </li>
 
