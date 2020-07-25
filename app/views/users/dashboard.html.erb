@@ -16,13 +16,13 @@
 
   <div class="container container-events-tab">
     <% if params[:tab] == "hosting" %>
-      <h1>Events you're hosting</h1>
+      <h1 class="title-green">Hosting</h1>
       <%= render "users/events", events: @hosting %>
     <% elsif params[:tab] == "accepted" %>
-      <h1>Events you've joined</h1>
+      <h1 class="title-green">Attending</h1>
       <%= render "users/events", events: @accepted %>
     <% elsif params[:tab] == "pending" || params[:tab].nil? %>
-      <h1>Pending Events</h1>
+      <h1 class="title-green">Pending requests</h1>
       <%= render "users/events", events: @pending %>
     <% end %>
   </div>

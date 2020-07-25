@@ -61,6 +61,14 @@
   filter: invert(1);
 }
 
+.title-green {
+  color: $green;
+  font-weight: bold;
+}
+
+.font-bold {
+  font-weight: bold;
+}
 .side-link.active {
   background-color: #38aa47;
 }
