@@ -16,3 +16,32 @@
     color: darkgrey;
   }
 }
+
+.text-orange {
+  color: $light-orange;
+}
+
+.profile {
+    color: grey;
+    margin: auto;
+    font-size: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 48px;
+    max-width: 1064px;
+    margin-bottom: 32px;
+}
+
+.profile-top {
+    color: #C37059;
+    font-weight: bold;
+    font-size: 80px;
+    text-align: left;
+    margin: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 48px;
+    max-width: 1064px;
+    margin-bottom: 32px;
+}
+

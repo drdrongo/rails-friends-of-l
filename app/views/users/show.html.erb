@@ -1,11 +1,10 @@
-    <h1 class="mb-3"> Hi! I'm <%= @user.first_name %> </h1>
-    <div class="host-info">
+    <h1 class="profile-top"> Hi! I'm <%= @user.first_name %> </h1>
+    <div class="profile">
     <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @user.photo.key, class: "avatar-extra-large" %>
     <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="" width=700px>
     <% end %>
-    </div>
 
     <% user_age = ((DateTime.now - @user.birthday.to_date)/365).floor %>
     <p class="mt-4"> Age: <%= user_age %></p>
