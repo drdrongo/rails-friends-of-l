@@ -6,14 +6,14 @@
 
     <li class="d-flex attendee align-items-center">
         <%= render "shared/avatar", user: current_user %>
-        <p class="mb-0"><%= link_to current_user.first_name.capitalize, user_path(current_user) %> (Host)</p>
+        <p class="mb-0 text-decoration-none"><%= link_to current_user.first_name.capitalize, user_path(current_user) %> (Host)</p>
     </li>
 
     <% if event.user != current_user %>
 
       <% accepted.each do |ticket| %>
         <li>
-          <div class="d-flex attendee align-items-center">
+          <div class="d-flex attendee align-items-center text-decoration-none">
             <%= render "shared/avatar", user: ticket.user %>
             <%= link_to ticket.user.first_name, user_path(ticket.user) %>
           </div>
