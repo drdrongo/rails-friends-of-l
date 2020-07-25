@@ -7,7 +7,7 @@
     <li>
       <div class="d-flex attendee align-items-center">
         <%= render "shared/avatar", user: current_user %>
-        <p class="mb-0"><%= current_user.first_name.capitalize %> (Host)</p>
+        <p class="mb-0"><%= link_to current_user.first_name.capitalize, user_path %> (Host)</p>
       </div>
     </li>
 
@@ -17,7 +17,7 @@
         <li>
           <div class="d-flex attendee align-items-center">
             <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %> 
+            <%= link_to ticket.user.first_name, user_path %>
           </div>
         </li>
       <% end %>
@@ -28,7 +28,7 @@
         <li>
           <div class="d-flex attendee align-items-center justify-content-between">
             <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %>
+            <%= link_to ticket.user.first_name, user_path %>
 
             <div class="d-flex align-items-center">
               <%= simple_form_for(ticket) do |f| %>
@@ -52,7 +52,7 @@
         <li>
           <div class="d-flex attendee align-items-center justify-content-between">
             <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %><h5 class="font-italic pr-2">Accepted</h5>
+            <%= link_to ticket.user.first_name, user_path %><h5 class="font-italic pr-2">Accepted</h5>
           </div>
         </li>
       <% end %>

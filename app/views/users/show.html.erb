@@ -8,5 +8,6 @@
     </div>
 
     <% user_age = ((DateTime.now - @user.birthday.to_date)/365).floor %>
-    <p class="mt-4"> Birthday: <%= user_age %></p>
+    <p class="mt-4"> Age: <%= user_age %></p>
+    <%= simple_format(@user.description) %>
   </div>
