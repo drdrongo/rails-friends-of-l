@@ -1,24 +1,20 @@
-<div class="container-window">
-
+<div class="container-window d-flex flex-column align-items-stretch">
 
   <% accepted = event.tickets.where(status: "accepted") %>
   <h2>Attendees (<%= accepted.length + 1 %>)</h2>
   <ul style="list-style-type:none">
-    <li>
-      <div class="d-flex attendee align-items-center">
-        <%= render "shared/avatar", user: event.user %>
-        <p class="mb-0"><%= event.user.first_name.capitalize %> (Host)</p>
-      </div>
+
+    <li class="d-flex attendee align-items-center">
+      <%= render "shared/avatar", user: event.user %>
+      <p class="mb-0"><%= event.user.first_name.capitalize %> (Host)</p>
     </li>
 
     <% if event.user != current_user %>
 
       <% accepted.each do |ticket| %>
-        <li>
-          <div class="d-flex attendee align-items-center">
-            <%= render "shared/avatar", user: ticket.user %>
-            <%= ticket.user.first_name %> 
-          </div>
+        <li class="d-flex attendee align-items-center">
+          <%= render "shared/avatar", user: ticket.user %>
+          <%= ticket.user.first_name %> 
         </li>
       <% end %>
 
