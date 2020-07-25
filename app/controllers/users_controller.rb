@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @hosting = @user.events_as_host
-    @accepted = @user.events.joins(:tickets).where("tickets.status = ?", "accepted")
+    @accepted = @user.events.where("tickets.status = ?", "accepted")
     @pending = @user.events.where("tickets.status = ?", "pending")
     authorize @user
   end

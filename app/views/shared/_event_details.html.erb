@@ -1,4 +1,4 @@
-<div class="event-container flex" style="flex-grow: 4">
+<div class="event-container flex">
   <div>
     <% category_icon = event.category == 'Cooking' ? 'chef@4x.png' : 'cutlery@4x.png' %>
     <h5 class="mb-3"> <%= image_tag category_icon, height:30 %>  <%= event.category %></h5>
@@ -23,17 +23,20 @@
         <h5 class="mt-5"> Event Details:<h5></h5>
         <%= simple_format(event.description) %>
       </div>
-      <div class="card-sticky ml-3" >
+      <div class="card-sticky ml-3">
         <div class="p-3 mb-3 card-event-info-show">
           <% d = event.datetime %>
-          <p> <%= image_tag "time-alarm@4x.png", height:30 %> <%= d.strftime("%a, %b %d, %l:%M %p") %></p>
-          <p class="mb-0"> <%= image_tag "pin-star@4x.png", height:30 %> <%= event.venue %></p>
+          <p> <%= image_tag "time-alarm@4x.png", height:30 %> <%= d.strftime("%a, %b %d %l:%M %p") %></p>
+          <p><%= image_tag "pin-star@4x.png",   height:30 %> <%= event.venue %></p>
+          <% if Ticket.where(user: current_user, event: event, status: "accepted").exists? %>
+            <p> <%= image_tag "pin-star@4x.png",   height:30 %> <%= event.user.email %></p>
+          <% end %>
         </div>
 
         <div class="mb-3"><%= render 'shared/approval', event: event %></div>
 
         <% if event.user != current_user %>
-          <div style="flex-grow: 1">
+          <div>
             <% if Ticket.where(user: current_user, event: event).exists? %>
               <button class="btn btn-block btn-outline-secondary" disabled>Request Sent</button>
             <% else %>

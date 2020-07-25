@@ -100,11 +100,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-event-info-show {
   background: white;
+  max-width: 360px;
+  word-wrap: break-word;
 }
 
 .card-sticky {
   position: sticky;
-  top: 5;
+  max-width: 360px;
 }
 
 .card-event-avatar {
